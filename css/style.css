@@ -1,0 +1,459 @@
+/* Brax War — tema inspirado em Last War: Survival */
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap');
+
+:root {
+  --bg-dark: #0a0e17;
+  --bg-card: #121a2b;
+  --bg-card-hover: #1a2540;
+  --border-gold: #c8960c;
+  --gold: #f0a500;
+  --gold-light: #ffc940;
+  --orange: #e8651a;
+  --text-primary: #e8e6e3;
+  --text-secondary: #9aa3b5;
+  --text-muted: #6b7589;
+  --accent-blue: #2a5a9e;
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  --radius: 8px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.6;
+  background-image:
+    radial-gradient(ellipse at 20% 0%, rgba(240, 165, 0, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 100%, rgba(42, 90, 158, 0.08) 0%, transparent 50%);
+}
+
+/* Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10, 14, 23, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(200, 150, 12, 0.3);
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+.logo-icon {
+  width: 42px;
+  height: 42px;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--orange) 100%);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--bg-dark);
+  clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+}
+
+.logo-text {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.logo-text span {
+  color: var(--gold);
+}
+
+.main-nav {
+  display: flex;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.main-nav a {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text-secondary);
+  padding: 0.4rem 0.75rem;
+  border-radius: 4px;
+  transition: color 0.2s, background 0.2s;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  color: var(--gold);
+  background: rgba(240, 165, 0, 0.08);
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 4rem 1.5rem 3rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-badge {
+  display: inline-block;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid rgba(240, 165, 0, 0.4);
+  padding: 0.35rem 1rem;
+  margin-bottom: 1.5rem;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+}
+
+.hero h1 {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3rem);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  background: linear-gradient(180deg, var(--text-primary) 0%, var(--gold-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero p {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Cards grid */
+.cards-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem;
+}
+
+.section-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(200, 150, 12, 0.25);
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+.card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: var(--bg-card);
+  border: 1px solid rgba(200, 150, 12, 0.2);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s, background 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--orange));
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(240, 165, 0, 0.5);
+  background: var(--bg-card-hover);
+  box-shadow: var(--shadow);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card-icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(240, 165, 0, 0.1);
+  border: 1px solid rgba(240, 165, 0, 0.25);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.card h3 {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.card p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.card-arrow {
+  display: inline-block;
+  margin-top: 1rem;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* Detail page */
+.page-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+.breadcrumb {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumb a {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.page-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  color: var(--gold-light);
+}
+
+.page-description {
+  background: var(--bg-card);
+  border: 1px solid rgba(200, 150, 12, 0.2);
+  border-left: 4px solid var(--gold);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.page-description h2 {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+}
+
+.page-description p {
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+}
+
+.page-description p:last-child {
+  margin-bottom: 0;
+}
+
+.page-description ul {
+  color: var(--text-secondary);
+  padding-left: 1.25rem;
+  margin-top: 0.5rem;
+}
+
+.page-description li {
+  margin-bottom: 0.35rem;
+}
+
+/* Video */
+.video-section {
+  margin-top: 2rem;
+}
+
+.video-section h2 {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: var(--radius);
+  border: 1px solid rgba(200, 150, 12, 0.3);
+  box-shadow: var(--shadow);
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 2.5rem;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--gold);
+  padding: 0.6rem 1.2rem;
+  border: 1px solid rgba(240, 165, 0, 0.4);
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.back-link:hover {
+  background: rgba(240, 165, 0, 0.1);
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid rgba(200, 150, 12, 0.2);
+  background: rgba(10, 14, 23, 0.8);
+  padding: 2rem 1.5rem;
+  margin-top: auto;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.footer-text {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: var(--gold);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header-inner {
+    flex-direction: column;
+    height: auto;
+    padding: 1rem 1.5rem;
+    gap: 1rem;
+  }
+
+  .main-nav {
+    justify-content: center;
+  }
+
+  .main-nav a {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.5rem;
+  }
+
+  .hero {
+    padding: 2.5rem 1.5rem 2rem;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+}
