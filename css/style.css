@@ -104,15 +104,39 @@ body {
   color: var(--text-muted);
 }
 
-.lang-nav__btn:hover:not(.is-active) {
-  color: var(--gold-dark);
-  background: rgba(249, 198, 51, 0.08);
+/* PT — verde e amarelo */
+.lang-nav__btn[hreflang="pt-BR"] {
+  color: #1a6b34;
 }
 
-.lang-nav__btn.is-active {
-  background: linear-gradient(180deg, var(--gold-light) 0%, var(--gold) 45%, var(--gold-dark) 100%);
-  box-shadow: 0 2px 8px rgba(237, 170, 40, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.35);
-  color: var(--text-primary);
+.lang-nav__btn[hreflang="pt-BR"]:hover:not(.is-active) {
+  background: linear-gradient(180deg, rgba(0, 156, 59, 0.14) 0%, rgba(255, 223, 0, 0.22) 100%);
+  color: #009c3b;
+}
+
+.lang-nav__btn[hreflang="pt-BR"].is-active {
+  background: linear-gradient(135deg, #009c3b 0%, #00a844 50%, #ffdf00 100%);
+  box-shadow: 0 2px 8px rgba(0, 156, 59, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  transform: translateY(-1px);
+}
+
+/* EN — vermelho e azul */
+.lang-nav__btn[hreflang="en"] {
+  color: #1e3a7a;
+}
+
+.lang-nav__btn[hreflang="en"]:hover:not(.is-active) {
+  background: linear-gradient(180deg, rgba(178, 34, 52, 0.12) 0%, rgba(0, 40, 104, 0.16) 100%);
+  color: #b22234;
+}
+
+.lang-nav__btn[hreflang="en"].is-active {
+  background: linear-gradient(135deg, #b22234 0%, #c41e3a 48%, #002868 100%);
+  box-shadow: 0 2px 8px rgba(0, 40, 104, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   transform: translateY(-1px);
 }
 
